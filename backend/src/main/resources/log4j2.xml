@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <!-- Daily rolling file appender -->
+        <RollingFile name="RollingFile" fileName="logs/service-desk-backend.log"
+            filePattern="logs/service-desk-backend-%d{yyyy-MM-dd}.log">
+            <!-- Pattern layout defines how each log message is formatted -->
+            <PatternLayout>
+                <Pattern>%d{ISO8601} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+
+            <!-- Rolling Policy: Trigger new file each day at midnight -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Root logger which writes to RollingFile appender -->
+        <Root level="info">
+            <AppenderRef ref="RollingFile" />
+        </Root>
+    </Loggers>
+</Configuration>

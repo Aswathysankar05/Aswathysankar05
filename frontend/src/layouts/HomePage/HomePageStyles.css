@@ -1,0 +1,105 @@
+/* LoginPage Style*/
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  .login-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* ServicesPage Style*/
+
+.services {
+  padding: 20px;
+  background-color: #f9f9f9;
+  
+}
+.services-container {
+  align-self: center;
+  width: 50%;
+ 
+}
+.services h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  
+}
+
+.service-item {
+  border: 1px solid #1b1919;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #75b0f333;
+  text-align: center;
+  /* width: 50%; */
+  align-self: center;
+}
+
+.service-item h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.service-item p {
+  margin: 0;
+  color: #555;
+}
+
+

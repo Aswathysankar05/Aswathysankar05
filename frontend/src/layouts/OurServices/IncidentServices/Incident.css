@@ -1,0 +1,67 @@
+/* IncidentsPage Style */
+.inc-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    }
+    
+    .inc-header {
+    text-align: center;
+    margin-bottom: 20px;
+    }
+    
+    .incidentList {
+    list-style: none;
+    padding: 0;
+    }
+    
+    .incidentItem {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+    transition: background 0.3s ease;
+    }
+    
+    .incidentItem:hover {
+    background: #e0e0e0;
+    }
+    
+    .incidentName {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    }
+    
+    .incidentDescription {
+    margin: 0 0 10px 0;
+    color: #666;
+    }
+    
+    .incidentMeta {
+    font-size: 0.9em;
+    color: #999;
+    }
+
+
+    .inc-submit-button, .inc-cancel-button {
+        background-color: #bac0bb; 
+        color:black; 
+        padding: 5px 10px; 
+        border: none; 
+        border-radius: 4px; 
+        cursor: pointer; 
+        margin-left: 0;
+      }
+      
+      .inc-submit-button, .inc-cancel-button:hover {
+        background-color:  #f0f0f0; 
+      }
+      .incidenterror-message {
+        color: red;
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+      
