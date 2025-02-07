@@ -1,0 +1,63 @@
+name: Push-Recactcode-to-EC2 instance from servicedesk branch
+
+# Trigger deployment only on push to servicedesk branch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - servicedesk
+
+jobs:
+  deploy:
+    name: Push to EC2 on servicedesk branch push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+        with:
+          ref: servicedesk
+      - name: Debug Secrets
+        run: |
+          echo "HOST_DNS: ${{ secrets.HOST_DNS }}" 
+          echo "EC2_USER: ${{ secrets.EC2_USER }}"
+          echo "TARGET_DIR: ${{ secrets.TARGET_DIR }}"
+
+      - name: Deploy to my EC2 instance
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          SOURCE: "./frontend"
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.EC2_USER }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            sudo apt update
+            cd /home
+            ls
+            cd serviceuser
+            cd frontend
+            sudo apt install npm
+            npm install react-router-dom
+            sudo npm run build
+            sudo cp -r build/*  /var/www/html/
+            sudo systemctl restart apache2
+
+      - name: Copy MySQL Dump to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "./dump/reactservicedeskdatabase_script_1.sql"
+          target: ${{ secrets.TARGET_DIR }}
+          script:
+            mysql -u root -p ${{ secrets.MYSQL_PASSWORD }} reactservicedeskdatabase </home/ec2-user/dump/reactservicedeskdatabase_script_1.sql
+            sudo systemctl restart mysql
