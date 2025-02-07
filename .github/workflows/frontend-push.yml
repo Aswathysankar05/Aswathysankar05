@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - servicedesk
-
+ 
 jobs:
   deploy:
     name: Push to EC2 on servicedesk branch push 
