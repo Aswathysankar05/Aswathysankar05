@@ -30,7 +30,7 @@ jobs:
           SOURCE: "./frontend"
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: "serviceuser"
-          TARGET: "/home/serviceuser/frontend"
+          TARGET: "/home/serviceuser/"
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
