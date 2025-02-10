@@ -29,8 +29,8 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           SOURCE: "./backend"
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.EC2_USER }}
-          TARGET: ${{ secrets.TARGET_DIR }}
+          REMOTE_USER: "serviceuser"
+          TARGET: "/home/serviceuser/"
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
