@@ -57,7 +57,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: "./dump/reactservicedeskdatabase_script_1.sql"
-          target: ${{ secrets.TARGET_DIR }}
+          target: "/home/serviceuser/"
           script:
-            mysql -u root -p ${{ secrets.MYSQL_PASSWORD }} reactservicedeskdatabase </home/ec2-user/dump/reactservicedeskdatabase_script_1.sql
+            mysql -u root -p ${{ secrets.MYSQL_PASSWORD }} reactservicedeskdatabase </home/serviceuser/dump/reactservicedeskdatabase_script_1.sql
             sudo systemctl restart mysql
