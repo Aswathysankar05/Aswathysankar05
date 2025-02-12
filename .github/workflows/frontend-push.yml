@@ -44,7 +44,7 @@ jobs:
             ls
             cd serviceuser
             cd frontend 
-            sudo apt install npm
+            sudo apt install npm 
             sudo npm install react-router-dom
             npm run build
             sudo cp -r build/*  /var/www/html/
