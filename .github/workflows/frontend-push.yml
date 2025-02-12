@@ -46,10 +46,9 @@ jobs:
             cd frontend 
             sudo apt install npm 
             sudo npm install react-router-dom
-            npm run build
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S npm run build
             echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S cp -r build/* /var/www/html/
-            sudo systemctl restart apache2
-
+            echo "${{ secrets.SUDO_PASSWORD }}" | sudo -S systemctl restart apache2
       - name: Copy MySQL Dump to EC2
         uses: appleboy/scp-action@master
         with:
