@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Allow CORS for all endpoints
-                .allowedOrigins("http://ec2-100-25-255-61.compute-1.amazonaws.com", "http://localhost:8080") // Change to
+                .allowedOrigins("http://ec2-100-25-255-61.compute-1.amazonaws.com", "http://ec2-100-25-255-61.compute-1.amazonaws.com:8080") // Change to
                                                                                                           // your
                                                                                                           // frontend
                                                                                                           // URL
