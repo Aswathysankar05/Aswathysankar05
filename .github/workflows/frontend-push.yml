@@ -8,7 +8,7 @@ on:
       - servicedesk  
  
 jobs: 
-  deploy:
+  deploy: 
     name: Push to EC2 on servicedesk branch push 
     runs-on: ubuntu-latest
 
