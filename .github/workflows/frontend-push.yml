@@ -46,7 +46,7 @@ jobs:
             cd frontend 
             sudo apt install npm
             sudo npm install react-router-dom
-            sudo npm run build
+            npm run build
             sudo cp -r build/*  /var/www/html/
             sudo systemctl restart apache2
 
