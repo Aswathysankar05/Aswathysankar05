@@ -2,7 +2,7 @@ name: Push-SpringBootCode-to-EC2 instance from servicedesk branch
 
 # Trigger deployment only on push to servicedesk branch
 on:
-  workflow_dispatch:
+  workflow_dispatch: 
   push:
     branches: 
       - servicedesk
