@@ -14,7 +14,7 @@ public class MydataRestConfig implements RepositoryRestConfigurer {
 
         // private String theAllowedOrigins =
         // "https://servicedesk-dev.cloudplusinfotech.com";
-        private String theAllowedOrigins = "http://ec2-54-156-67-95.compute-1.amazonaws.com";
+        private String theAllowedOrigins = "http://ec2-100-25-255-61.compute-1.amazonaws.com";
 
         @Override
         public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
