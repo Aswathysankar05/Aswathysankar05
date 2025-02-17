@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
   const [captchaToken, setCaptchaToken] = useState('');
   const [isCaptchaReady, setIsCaptchaReady] = useState(false)
 
-  const RECAPTCHA_SITE_KEY = '6LdspdQqAAAAAAyeD-WZGeLaBgBmf0r0OvCVYcS4';
+  const RECAPTCHA_SITE_KEY = '6Le9tdkqAAAAANXRCazrtOo35XvFLDTNBlJ1jp1F';
   const handleCaptchaChange = (token: string | null) => {
     if (token) {
       setCaptchaToken(token);
