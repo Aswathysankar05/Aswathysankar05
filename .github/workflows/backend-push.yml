@@ -47,4 +47,6 @@ jobs:
             sudo mvn clean package
             sudo cp -r target/*  /var/www/html/target/
             cd  /var/www/html/target/
-            nohup java -jar springboot-backend-0.0.1-SNAPSHOT.jar
+            nohup java -jar springboot-backend-0.0.1-SNAPSHOT.jar > app.log 2>&1 &
+
+            ps aux | grep springboot-backend
