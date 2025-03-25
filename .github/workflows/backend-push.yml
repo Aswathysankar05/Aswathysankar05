@@ -22,7 +22,7 @@ jobs:
           echo "HOST_DNS: ${{ secrets.HOST_DNS }}"
           echo "EC2_USER: ${{ secrets.EC2_USER }}"
           echo "TARGET_DIR: ${{ secrets.TARGET_DIR }}"
-
+ 
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@main
         env:
