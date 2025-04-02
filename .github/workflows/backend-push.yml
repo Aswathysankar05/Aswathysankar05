@@ -31,6 +31,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: "serviceuser"
           TARGET: "/home/serviceuser/"
+          ARGS: "--rsync-path='sudo rsync'"
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
