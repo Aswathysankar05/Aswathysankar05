@@ -1,0 +1,40 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [servicedesk]
+  pull_request:
+    branches: [servicedesk]
+  schedule:
+    - cron: '0 0 * * 0' # weekly scan
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python' ] # update with your repo's language
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+
+    - name: Build
+      run: |
+        # Add build commands here if required
+        echo "Skipping build step"
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
